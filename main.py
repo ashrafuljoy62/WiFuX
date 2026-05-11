@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# MD Sakibur Rahman
-# Author: @msrofficial
-# GitHub: https://github.com/msrofficial
-# Time: Wed Apr 08 22:08:08 2026
+# Ahrraful Alam Joy
+# Author: @Ashraful Joy
+# GitHub: https://github.com/ashrafuljoy62
+# Time: Sun May 10 10:08:08 2026
 # ──────────────────────────────────────────────
 
 import base64, zlib, marshal
