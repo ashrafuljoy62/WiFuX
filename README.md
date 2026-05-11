@@ -11,10 +11,10 @@
 
 **WiFuX v2.0** — WPS Security Auditing Tool for Android / Termux
 
-[![Version](https://img.shields.io/badge/version-2.0-brightgreen)](https://github.com/msrofficial/WiFuX/releases)
+[![Version](https://img.shields.io/badge/version-2.0-brightgreen)](https://github.com/ashrafuljoy62/WiFuX/releases)
 [![Platform](https://img.shields.io/badge/platform-Android%20%2F%20Termux-blue)](https://termux.dev)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
-[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=msrofficial.wifux)](https://github.com/msrofficial/WiFuX)
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=ashrafuljoy62.wifux)](https://github.com/ashrafuljoy62/WiFuX)
 
 </div>
 
@@ -49,7 +49,7 @@ WiFuX v2.0 installs globally. Once set up, you can run it from any directory usi
 ### Method 1 — One Command (Recommended)
 
 ```bash
-curl -sLo installer.sh https://raw.githubusercontent.com/msrofficial/WiFuX/main/installer.sh && bash installer.sh
+curl -sLo installer.sh https://raw.githubusercontent.com/ashrafuljoy62/WiFuX/main/installer.sh && bash installer.sh
 ```
 
 This will automatically update packages, install all dependencies, clone the repository, and register the `wifux` global command.
@@ -59,7 +59,7 @@ This will automatically update packages, install all dependencies, clone the rep
 ```bash
 pkg update && pkg upgrade -y
 pkg install root-repo git tsu python wpa-supplicant pixiewps iw -y
-git clone https://github.com/msrofficial/WiFuX
+git clone https://github.com/ashrafuljoy62/WiFuX
 cd WiFuX
 chmod +x install.sh
 bash install.sh
@@ -129,10 +129,10 @@ wifux fix
 
 If the issue persists, use the dedicated fix script:
 ```bash
-curl -sO https://raw.githubusercontent.com/msrofficial/fix-termux-root/main/fix.sh && chmod +x fix.sh && ./fix.sh
+curl -sO https://raw.githubusercontent.com/ashrafuljoy62/fix-termux-root/main/fix.sh && chmod +x fix.sh && ./fix.sh
 ```
 
-Manual solutions: [github.com/msrofficial/fix-termux-root](https://github.com/msrofficial/fix-termux-root)
+Manual solutions: [github.com/ashrafuljoy62/fix-termux-root](https://github.com/ashrafuljoy62/fix-termux-root)
 
 ---
 
@@ -170,17 +170,17 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ## Author
 
-**MD Sakibur Rahman (MSR)**
+**Ashraful Alam Joy**
 
 | Platform | Link |
 |---|---|
-| GitHub | [msrofficial](https://github.com/msrofficial) |
-| Facebook | [sakibur.msr](https://facebook.com/sakibur.msr) |
-| Instagram | [msr.sakibur](https://instagram.com/msr.sakibur) |
-| Telegram | [@msrofficial](https://t.me/msrofficial) |
-| Website | [msrsakibur.pro.bd](https://msrsakibur.pro.bd) |
+| GitHub | [ashrafuljoy62](https://github.com/ashrafuljoy62) |
+| Facebook | [ashrafulalam05](https://facebook.com/ashrafulalam05) |
+| Instagram | [fire.fighter.joy](https://instagram.com/fire.fighter.joy) |
+| Telegram | [@premium_master_62](https://t.me/premium_master_62) |
+| Website | [ashrafuljoy.pro.bd](https://ashrafuljoy.pro.bd) |
 
-Honorable mentions include: rofl0r, Rayhan, Alamin, Sojib, Sanji, Mustakin, Sakib, rizzi
+Honorable mentions include: Sohan
 
 ---
 
