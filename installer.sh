@@ -15,7 +15,7 @@ pkg install git tsu python wpa-supplicant pixiewps iw -y
 # Check directory and clone
 if [ ! -d "WiFuX" ] && [ ! -f "main.py" ]; then
     echo -e "${GREEN}[+] Cloning WiFuX repository...${RESET}"
-    git clone https://github.com/msrofficial/WiFuX
+    git clone https://github.com/ashrafuljoy62/WiFuX
     cd WiFuX || exit
 elif [ -d "WiFuX" ]; then
     cd WiFuX || exit
@@ -38,7 +38,7 @@ cd "$SCRIPT_DIR" || exit
 
 # Update Logic
 if [ "\$1" == "update" ]; then
-    echo -e "\033[1;32m[+] Fetching latest updates from MSR's GitHub...\033[0m"
+    echo -e "\033[1;32m[+] Fetching latest updates from AMJ's GitHub...\033[0m"
     git reset --hard HEAD > /dev/null 2>&1
     git pull origin main
 
@@ -110,7 +110,7 @@ echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux\033[0m         → Run WiFuX (m
 echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux update\033[0m  → Update WiFuX to latest version"
 echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux help\033[0m    → Show help & usage info"
 echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux fix\033[0m     → Fix root/superuser issues"
-echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux contact\033[0m → Contact the developer (MSR)"
+echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux contact\033[0m → Contact the developer (AMJ)"
 echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux menu\033[0m    → Run WiFuX interactive menu"
 echo -e "\033[1;32m  │\033[0m  \033[1;37mwifux old\033[0m     → Run WiFuX old engine (w1.py)"
 echo -e "\033[1;32m  └───────────────────────────────────────────┘\033[0m"
@@ -119,7 +119,7 @@ echo -e "\n\033[1;31m  ⚡ IMPORTANT — If 'wifux' shows:\033[0m"
 echo -e "\033[1;37m     \"no superuser binary detected\"\033[0m"
 echo -e "\033[1;33m  → First try:   \033[1;37mwifux fix\033[0m"
 echo -e "\033[1;33m  → Still broken? Visit this link for 3 fix methods:\033[0m"
-echo -e "\033[1;36m     https://github.com/msrofficial/fix-termux-root\033[0m"
+echo -e "\033[1;36m     https://github.com/ashrafuljoy62/fix-termux-root\033[0m"
 echo -e "\033[1;33m  → Copy or screenshot that link right now!\033[0m"
 
 echo -e "\n\033[1;36m══════════════════════════════════════════════\033[0m"
