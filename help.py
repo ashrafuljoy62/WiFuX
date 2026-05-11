@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ─────────────────────────────────────────────
-#  WiFuX Help Guide — by MSR
+#  WiFuX Help Guide — by AMJ
 #  Run: wifux help
 # ─────────────────────────────────────────────
 
@@ -44,7 +44,7 @@ def banner():
 ╚███╔███╔╝██║██║     ╚██████╔╝██╔╝ ██╗
  ╚══╝╚══╝ ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝\033[0m
 {C}         Help Guide — v2.0{RS}
-{M}         ★ Stay With MSR{RS}
+{M}         ★ Stay With AMJ{RS}
 ''')
 
 # ────────────────────────────────────────────
@@ -310,7 +310,7 @@ def section_commands():
   {G}--pixie-list{RS}       Show all Pixie Dust vulnerable routers
   {G}--list-all-models{RS}  Show all router models in database
 
-{Y}  ─── Quick Launch ───{RS}\n  {G}wifux{RS}              Run with default settings (wlan0 + Pixie Dust)\n  {G}wifux menu{RS}         Open WiFuX interactive menu (no auto-attack)\n  {G}wifux old{RS}          Run old engine (w1.py) with wlan0\n  {G}wifux update{RS}       Update WiFuX to latest version\n  {G}wifux help{RS}         Show this help guide\n  {G}wifux fix{RS}          Fix root/superuser issues\n  {G}wifux contact{RS}      Contact the developer (MSR)\n\n{Y}  ─── Android / Termux ───{RS}
+{Y}  ─── Quick Launch ───{RS}\n  {G}wifux{RS}              Run with default settings (wlan0 + Pixie Dust)\n  {G}wifux menu{RS}         Open WiFuX interactive menu (no auto-attack)\n  {G}wifux old{RS}          Run old engine (w1.py) with wlan0\n  {G}wifux update{RS}       Update WiFuX to latest version\n  {G}wifux help{RS}         Show this help guide\n  {G}wifux fix{RS}          Fix root/superuser issues\n  {G}wifux contact{RS}      Contact the developer (AMJ)\n\n{Y}  ─── Android / Termux ───{RS}
   {G}--dts{RS}              Don't touch Android WiFi settings
   {G}--mtk-wifi{RS}         Enable MediaTek WiFi driver
   {G}--handle-rfkill{RS}    Auto-unblock if rfkill is blocking WiFi
@@ -569,11 +569,11 @@ def section_warnings():
 {M}  Developer:{RS}
 {LINE2}
 
-  {W}MD Sakibur Rahman (MSR){RS}
-  GitHub  : {C}msrofficial{RS}
-  Website : {C}https://msrsakibur.netlify.app{RS}
+  {W}Ashraful Alam Joy{RS}
+  GitHub  : {C}ashrafuljoy62{RS}
+  Website : {C}https://ashrafuljoy.netlify.app{RS}
 
-{TIP} {M}Stay With MSR — Stay safe, stay ethical.{RS}
+{TIP} {M}Stay With AMJ — Stay safe, stay ethical.{RS}
 ''')
     pause()
 
@@ -616,7 +616,7 @@ def section_wifux_commands():
   ↳ Fix root / superuser issues in Termux
 
   {G}wifux contact{RS}
-  ↳ Contact the developer (MSR)
+  ↳ Contact the developer (AMJ)
 
 {LINE2}
 {G}  ─── With Arguments (Advanced) ───{RS}
@@ -653,7 +653,7 @@ def main():
         choice = show_menu()
         if choice == '0':
             clear()
-            print(f'\n{M}  ★ Stay With MSR — Thanks for using WiFuX!{RS}\n')
+            print(f'\n{M}  ★ Stay With AMJ — Thanks for using WiFuX!{RS}\n')
             sys.exit(0)
         elif choice in handlers:
             handlers[choice]()
