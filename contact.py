@@ -5,14 +5,14 @@ import subprocess
 import sys
 
 # ─────────────────────────────────────────────
-#  Social Media Links — MSR Sakibur
+#  Social Media Links — AMJ Ashraful
 # ─────────────────────────────────────────────
 CONTACTS = {
-    1: {"name": "Facebook",   "url": "https://m.facebook.com/sakibur.msr"},
-    2: {"name": "Instagram",  "url": "https://instagram.com/msr.sakibur"},
-    3: {"name": "Telegram",   "url": "https://t.me/msrofficial"},
-    4: {"name": "GitHub",     "url": "https://github.com/msrofficial"},
-    5: {"name": "TG Group",   "url": "https://t.me/msrpatchchat"},
+    1: {"name": "Facebook",   "url": "https://m.facebook.com/ashrafulalam05"},
+    2: {"name": "Instagram",  "url": "https://instagram.com/fire.fighter.joy"},
+    3: {"name": "Telegram",   "url": "https://t.me/premium_master_62"},
+    4: {"name": "GitHub",     "url": "https://github.com/ashrafuljoy62"},
+    5: {"name": "TG Channel",   "url": "https://t.me/movieallpremium"},
 }
 
 # ─────────────────────────────────────────────
@@ -29,7 +29,7 @@ def banner():
 
 def show_menu():
     print('\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m')
-    print('\033[1;33m  Contact MSR Sakibur — Choose a Platform\033[0m')
+    print('\033[1;33m  Contact AMJ Ashraful — Choose a Platform\033[0m')
     print('\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m')
     print()
     for num, info in CONTACTS.items():
@@ -66,7 +66,7 @@ def open_url(url):
 def goodbye():
     print()
     print('\033[1;36m╭──────────────────────────────────────────╮\033[0m')
-    print('\033[1;36m│\033[0m        \033[1;32mSee you! — Stay With MSR\033[0m          \033[1;36m│\033[0m')
+    print('\033[1;36m│\033[0m        \033[1;32mSee you! — Stay With AMJ\033[0m          \033[1;36m│\033[0m')
     print('\033[1;36m╰──────────────────────────────────────────╯\033[0m')
     print()
 
