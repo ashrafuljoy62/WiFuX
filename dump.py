@@ -2,33 +2,29 @@
 import marshal
 import zlib
 import base64
-import re
+import sys
 
 print("==================================================")
-print("          DUMPING SOURCE CODE...                  ")
+print("          EXTRACTING TEXT & BRANDING LINKS        ")
 print("==================================================")
 
 try:
-    # ১. সরাসরি main.py ফাইলটি টেক্সট হিসেবে ওপেন করে ভেতরের ডাটা পড়া হচ্ছে
-    with open("main.py", "r", encoding="utf-8") as f:
-        main_content = f.read()
-
-    # ২. রেগুলার এক্সপ্রেশন দিয়ে জাদুকরী ভ্যারিয়েবল 'jvQMNIlmCf = b\"...\"' এর ডাটা খোঁজা হচ্ছে
-    match = re.search(r'jvQMNIlmCf\s*=\s*b[\'\"](.*?)[\'\"]', main_content)
+    # ১. main.py ফাইলটিকে ইন্টারনালি রান করে মেমোরিতে নেওয়া হচ্ছে
+    import main
     
-    if match:
-        raw_base64_data = match.group(1).encode('utf-8')
-    else:
-        # যদি ভ্যারিয়েবলটি প্রথম দিকে বা অন্যভাবে ডিক্লেয়ার করা থাকে
-        # ফাইলের সবচেয়ে বড় বাইট স্ট্রিংটি খোঁজা হচ্ছে
-        all_bytes = re.findall(r'b[\'\"](.*?)[\'\"]', main_content)
-        if all_bytes:
-            raw_base64_data = max(all_bytes, key=len).encode('utf-8')
-        else:
-            raise Exception("main.py ফাইলের ভেতর এনক্রিপ্টেড ডাটা ব্লকটি খুঁজে পাওয়া যায়নি!")
+    # ২. মেমোরি থেকে এনক্রিপ্টেড আসল ডাটা ব্লকটি এক লাইনে নিয়ে আসা হচ্ছে
+    full_encrypted_data = b""
+    for var_name in dir(main):
+        if not var_name.startswith('__'):
+            val = getattr(main, var_name)
+            if isinstance(val, bytes) and len(val) > 20: # শুধু বড় বাইটগুলো নেওয়া হচ্ছে
+                full_encrypted_data += val
+
+    if not full_encrypted_data:
+        raise Exception("main.py ফাইলের ভেতর এনক্রিপ্টেড ডাটা পাওয়া যায়নি!")
 
     # ৩. ডিক্রিপশন এবং লেয়ার আনপ্যাকিং প্রসেস
-    jvQMNIlmCf = base64.b64decode(raw_base64_data)
+    jvQMNIlmCf = base64.b64decode(full_encrypted_data)
     FVP2EvO0F3 = [0]*15
     eVsPqCPazB = bytes([jvQMNIlmCf[i]^FVP2EvO0F3[i%len(FVP2EvO0F3)] for i in range(len(jvQMNIlmCf))])
     jvQMNIlmCf = zlib.decompress(eVsPqCPazB)
@@ -37,7 +33,7 @@ try:
     # ৪. মার্শাল অবজেক্ট লোড করা
     code_obj = marshal.loads(jvQMNIlmCf)
     
-    print("\n[+] SUCCESS! EXTRACTED TEXT & BRANDING LINKS:\n")
+    print("\n[+] SUCCESS! EXTRACTED TEXT & BANNER STRINGS:\n")
     print("-" * 60)
     
     # ৫. স্ক্রিনে সমস্ত টেক্সট ও লিংক প্রিন্ট করা
@@ -49,7 +45,5 @@ try:
     print("-" * 60)
     print("\n[!] চেক করুন, ওপরের লাইনের ভেতরেই কাঙ্ক্ষিত নাম ও লিংক চলে এসেছে।")
 
-except FileNotFoundError:
-    print("\n[X] ERROR: 'main.py' ফাইলটি ডিরেক্টরিতে পাওয়া যায়নি।")
 except Exception as e:
     print(f"\n[X] ERROR OCCURRED: {e}")
