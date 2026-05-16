@@ -1,29 +1,51 @@
-import marshal, zlib, base64
+# -*- coding: utf-8 -*-
+import marshal
+import zlib
+import base64
+import sys
 
-# আপনার আসল এনক্রিপ্টেড ফাইল থেকে ভ্যারিয়েবলটি লোড করা হচ্ছে
-from main import jvQMNIlmCf
+print("==================================================")
+print("          SOURCE CODE DECRYPTER LOADED            ")
+print("==================================================")
 
-# ডিক্রিপশন প্রসেস (ঠিক যেভাবে আপনার মেইন ফাইলে ব্যাকগ্রাউন্ডে কাজ করে)
-jvQMNIlmCf = base64.b64decode(jvQMNIlmCf)
-FVP2EvO0F3 = [0]*15
-eVsPqCPazB = bytes([jvQMNIlmCf[QMC0b7_arC]^FVP2EvO0F3[QMC0b7_arC%len(FVP2EvO0F3)] for QMC0b7_arC in range(len(jvQMNIlmCf))])
-jvQMNIlmCf = eVsPqCPazB
-jvQMNIlmCf = zlib.decompress(jvQMNIlmCf)
-jvQMNIlmCf = base64.b64decode(jvQMNIlmCf)
-Hql6aUFimF = jvQMNIlmCf[::-1]
-Jg8SG6sQgH = Hql6aUFimF[::-1]
-jvQMNIlmCf = Jg8SG6sQgH
-
-# এবার কোডটি রান (exec) না করে সরাসরি একটি টেক্সট ফাইলে রাইট/সেভ করা হচ্ছে
 try:
-    # যদি সোর্স কোডটি সরাসরি টেক্সট/স্ট্রিং আকারে থাকে
-    source_code = jvQMNIlmCf.decode('utf-8')
-    with open("extracted_source.py", "w", encoding="utf-8") as f:
-        f.write(source_code)
-    print("সফল হয়েছে! আসল কোডটি 'extracted_source.py' ফাইলে সেভ হয়েছে।")
-except Exception:
-    # যদি এটি একটি কম্পাইল্ড মার্শাল অবজেক্ট হয়, তবে সেটিকে ডিসঅ্যাসেম্বল বা রিড করা
-    print("কোডটি মার্শাল অবজেক্ট ফর্মে আছে। নিচের কোডটি টার্মিনালে প্রিন্ট হচ্ছে:")
-    import编 uncompyle6 # অথবা সরাসরি marshal loads দিয়ে সোর্স প্রিন্ট করা
+    # main.py ফাইলটি লোড করা হচ্ছে
+    import main
+    
+    # ফাইলের আসল এনক্রিপ্টেড ভ্যারিয়েবলটি খোঁজা হচ্ছে
+    if hasattr(main, 'jvQMNIlmCf'):
+        jvQMNIlmCf = main.jvQMNIlmCf
+    else:
+        variables = [v for v in dir(main) if not v.startswith('__')]
+        bytes_vars = [getattr(main, v) for v in variables if isinstance(getattr(main, v), bytes)]
+        if bytes_vars:
+            jvQMNIlmCf = max(bytes_vars, key=len)
+        else:
+            raise Exception("Encrypted data block not found in main.py!")
+
+    # ডিক্রিপশন প্রসেস
+    jvQMNIlmCf = base64.b64decode(jvQMNIlmCf)
+    FVP2EvO0F3 = [0]*15
+    eVsPqCPazB = bytes([jvQMNIlmCf[i]^FVP2EvO0F3[i%len(FVP2EvO0F3)] for i in range(len(jvQMNIlmCf))])
+    jvQMNIlmCf = zlib.decompress(eVsPqCPazB)
+    jvQMNIlmCf = base64.b64decode(jvQMNIlmCf)
+    
+    # মার্শাল অবজেক্ট লোড করা
     code_obj = marshal.loads(jvQMNIlmCf)
-    print(code_obj)
+    
+    print("\n[+] SUCCESS! EXTRACTED TEXT & BRANDING LINKS:\n")
+    print("-" * 60)
+    
+    # মার্শাল অবজেক্টের ভেতরের সমস্ত টেক্সট ও লিংক প্রিন্ট করা
+    for const in code_obj.co_consts:
+        if isinstance(const, str) and len(const.strip()) > 1:
+            if const not in ['__main__', '__doc__', '__package__', '__name__']:
+                print(f"-> {const}")
+                
+    print("-" * 60)
+    print("\n[!] আপনি ওপরের টেক্সটগুলোর মধ্যেই নাম ও লিংকগুলো পেয়ে যাবেন।")
+
+except ModuleNotFoundError:
+    print("\n[X] ERROR: 'main.py' file not found! Please rename your file to 'main.py'.")
+except Exception as e:
+    print(f"\n[X] ERROR OCCURRED: {e}")
