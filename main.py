@@ -1,4 +1,12 @@
-   0             RESUME                   0
+# -*- coding: utf-8 -*-
+# Ahrraful Alam Joy
+# Author: @Ashraful Joy
+# Facebook: https://m.facebook.com/ashrafulalam05
+# GitHub: https://github.com/ashrafuljoy62
+# Website: https://ashrafuljoy.pro.bd
+# Time: Sun May 10 10:08:08 2026
+# ──────────────────────────────────────────────
+0             RESUME                   0
 
    1             LOAD_CONST               0 (0)
                  LOAD_CONST               1 (None)
