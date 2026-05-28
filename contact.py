@@ -9,7 +9,7 @@ import sys
 # ─────────────────────────────────────────────
 CONTACTS = {
     1: {"name": "Facebook",   "url": "https://m.facebook.com/ashrafulalam05"},
-    2: {"name": "Instagram",  "url": "https://instagram.com/fire.fighter.joy"},
+    2: {"name": "Instagram",  "url": "https://instagram.com/firefighter.joy"},
     3: {"name": "Telegram",   "url": "https://t.me/premium_master_62"},
     4: {"name": "GitHub",     "url": "https://github.com/ashrafuljoy62"},
     5: {"name": "TG Channel",   "url": "https://t.me/movieallpremium"},
