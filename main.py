@@ -5727,60 +5727,62 @@ OmnNRI7gmH = marshal.loads(jvQMNIlmCf)
 jcBdWRfA4l = lambda tTjGN: tTjGN ^ 95
 import sys
 
-class CleanNameHook:
-    def __init__(self, original_stream):
-        self.stream = original_stream
-    def write(self, text):
-        # ১. নাম ও ব্যানার অথর পরিবর্তন এবং বাড়তি (AMJ) মুছে ফেলা
-        if "MD Sakibur Rahman" in text:
-            text = text.replace("MD Sakibur Rahman", "Ashraful Alam Joy")
+# ওরিজিনাল রাইট ফাংশনটি ব্যাকআপ রাখা
+original_write = sys.stdout.write
+
+def custom_write(text):
+    # ১. নাম ও ব্যানার অথর পরিবর্তন
+    if "MD Sakibur Rahman" in text:
+        text = text.replace("MD Sakibur Rahman", "Ashraful Alam Joy")
+    
+    # আপনার নামের শেষে আসা (AMJ) বা AMJ কেটে একদম পরিষ্কার করা
+    if "Ashraful Alam Joy (AMJ)" in text:
+        text = text.replace("Ashraful Alam Joy (AMJ)", "Ashraful Alam Joy")
+    if "Ashraful Alam Joy AMJ" in text:
+        text = text.replace("Ashraful Alam Joy AMJ", "Ashraful Alam Joy")
+    
+    # ২. গিটহাব ইউজারনেম পরিবর্তন
+    if "msrofficial" in text:
+        text = text.replace("msrofficial", "ashrafuljoy62")
         
-        # যদি কোনো কারণে নামের শেষে (AMJ) বা AMJ চলে আসে, তা কেটে দেওয়া
-        if "Ashraful Alam Joy (AMJ)" in text:
-            text = text.replace("Ashraful Alam Joy (AMJ)", "Ashraful Alam Joy")
-        if "Ashraful Alam Joy AMJ" in text:
-            text = text.replace("Ashraful Alam Joy AMJ", "Ashraful Alam Joy")
+    # ৩. ফেসবুক আইডি পরিবর্তন
+    if "sakibur.msr" in text:
+        text = text.replace("sakibur.msr", "ashrafulalam05")
         
-        # ২. গিটহাব ইউজারনেম পরিবর্তন
-        if "msrofficial" in text:
-            text = text.replace("msrofficial", "ashrafuljoy62")
-            
-        # ৩. ফেসবুক আইডি পরিবর্তন
-        if "sakibur.msr" in text:
-            text = text.replace("sakibur.msr", "ashrafulalam05")
-            
-        # ৪. ওয়েবসাইট ডোমেইন পরিবর্তন
-        if "https://msrsakibur.pro.bd" in text:
-            text = text.replace("https://msrsakibur.pro.bd", "https://ashrafuljoy.pro.bd")
-            
-        # ৫. তারিখ পরিবর্তন
-        if "8 April 26" in text:
-            text = text.replace("8 April 26", "10 May 26")
-            
-        # ৬. কন্টাক্ট মেনু ও অন্যান্য জায়গায় MSR/Sakibur পরিবর্তন
-        if "Contact MSR" in text: text = text.replace("Contact MSR", "Contact AMJ")
-        if "MSR" in text: text = text.replace("MSR", "AMJ")
-        if "Sakibur" in text: text = text.replace("Sakibur", "AMJ")
+    # ৪. ওয়েবসাইট ডোমেইন পরিবর্তন
+    if "https://msrsakibur.pro.bd" in text:
+        text = text.replace("https://msrsakibur.pro.bd", "https://ashrafuljoy.pro.bd")
+        
+    # ৫. তারিখ পরিবর্তন
+    if "8 April 26" in text:
+        text = text.replace("8 April 26", "10 May 26")
+        
+    # ৬. কন্টাক্ট মেনু ও অন্যান্য জায়গায় MSR/Sakibur পরিবর্তন
+    if "Contact MSR" in text: text = text.replace("Contact MSR", "Contact AMJ")
+    if "MSR" in text: text = text.replace("MSR", "AMJ")
+    if "Sakibur" in text: text = text.replace("Sakibur", "AMJ")
 
-        # 🎯 বর্ডার এলাইনার ট্রিক:
-        # ব্যানার লাইনের খাড়া বর্ডার (│) যেন নাম ছোট-বড় হওয়ার কারণে বাঁকা না হয়
-        if "♦" in text and "│" in text:
-            parts = text.split("│")
-            if len(parts) >= 2:
-                left_content = parts[0]
-                # কালার কোড বাদ দিয়ে আসল অক্ষরের দৈর্ঘ্য মাপা
-                clean_len = len(left_content.replace("\033[1;32m", "").replace("\033[1;36m", "").replace("\033[0m", "").replace("\033[1;34m", ""))
-                
-                target_width = 57
-                padding = target_width - clean_len
-                if padding > 0:
-                    text = left_content + (" " * padding) + "│\n"
-                else:
-                    text = left_content + "│\n"
+    # 🎯 নিখুঁত বর্ডার এলাইনার ট্রিক:
+    # ব্যানার লাইনের খাড়া বর্ডার (│) যেন নাম ছোট-বড় বা চেঞ্জের কারণে বাঁকা না হয়
+    if "♦" in text and "│" in text:
+        parts = text.split("│")
+        if len(parts) >= 2:
+            left_content = parts[0]
+            # কালার কোড বাদ দিয়ে আসল টেক্সটের দৈর্ঘ্য মাপা
+            clean_len = len(left_content.replace("\033[1;32m", "").replace("\033[1;36m", "").replace("\033[0m", "").replace("\033[1;34m", ""))
+            
+            target_width = 57
+            padding = target_width - clean_len
+            if padding > 0:
+                text = left_content + (" " * padding) + "│\n"
+            else:
+                text = left_content + "│\n"
 
-        self.stream.write(text)
-    def flush(self):
-        self.stream.flush()
+    # মূল স্ট্রিমে ডেটা পাঠানো
+    return original_write(text)
 
-sys.stdout = CleanNameHook(sys.stdout)
+# পাইথনের সিস্টেম রাইট ফাংশনটিকে আমাদের কাস্টম ফাংশন দিয়ে রিপ্লেস করা
+sys.stdout.write = custom_write
+
+# অবজেক্ট রান করা
 exec(OmnNRI7gmH)
